@@ -1,0 +1,20 @@
+body, html, #root {
+    height: 100vh;
+}
+
+#root {
+    width: 100vw;
+    height: 100vh;
+    max-height: 100vh;
+    display: grid;
+    grid-template-columns: minmax(100px, 500px) 1fr;
+    grid-template-rows: auto 1fr 200px;
+}
+
+.playlist {
+    scrollbar-width: none; 
+}
+
+.playlist::-webkit-scrollbar {
+    display: none; /* for Chrome, Safari, and Opera */
+}
