@@ -1,5 +1,6 @@
 body, html, #root {
     height: 100vh;
+    background-color: #383838
 }
 
 #root {
@@ -8,7 +9,7 @@ body, html, #root {
     max-height: 100vh;
     display: grid;
     grid-template-columns: minmax(100px, 500px) 1fr;
-    grid-template-rows: auto 1fr 200px;
+    grid-template-rows: auto auto 1fr 200px;
 }
 
 .playlist {

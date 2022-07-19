@@ -1,4 +1,4 @@
-let data = [
+[
     {
         "name": "French History",
         "data": [
@@ -1469,5 +1469,3 @@ let data = [
         ]
     }
 ]
-
-export default data

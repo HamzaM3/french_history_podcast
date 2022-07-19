@@ -8,7 +8,7 @@ function PlayButton(props) {
     } else {
         button = <i className="fa-solid fa-play"></i>
     }
-    return <div onClick={toggle} className='bg-white rounded-full text-4xl text-center w-[70px] h-[70px] flex items-center justify-center'>
+    return <div onClick={toggle} className='bg-black rounded-full text-6xl text-center w-[70px] h-[70px] flex items-center justify-center cursor-pointer'>
         {button}
     </div>
     
@@ -16,12 +16,12 @@ function PlayButton(props) {
 
 function Buttons(props) {
     let {toggle, playing, prev, suiv} =props
-    return <div className="text-red-500 flex justify-center items-center gap-5 pt-8 pb-6">
-        <div onClick={prev} className='bg-white rounded-full text-2xl text-center w-[50px] h-[50px] flex items-center justify-center'>
+    return <div className="text-[red-500] flex justify-center items-center gap-10 pt-8 pb-6">
+        <div onClick={prev} className='bg-black rounded-full text-4xl text-center w-[50px] h-[50px] flex items-center justify-center cursor-pointer'>
             <i className="fa-solid fa-backward"> </i>
         </div>
         <PlayButton toggle={toggle} playing={playing}></PlayButton>
-        <div onClick={suiv} className='bg-white rounded-full text-2xl text-center w-[50px] h-[50px] flex items-center justify-center'>
+        <div onClick={suiv} className='bg-black rounded-full text-4xl text-center w-[50px] h-[50px] flex items-center justify-center cursor-pointer'>
             <i className="fa-solid fa-forward"></i>
         </div>
     </div>
@@ -83,19 +83,22 @@ class PlayBar extends React.Component {
 
         let proportion = 100 * seek()  / duration();
 
-        return <div className="pl-16 flex gap-20 items-center justify-start">
-            <div className="">
-                <div id="line" className="w-[80vw] h-[12px] bg-rose-500 rounded-[6px] relative" onClick={this.barClicked.bind(this)}>
+        return <div className="px-20 flex gap-20 items-center justify-start">
+            <p className="text-[#FFC46C] text-xl font-bold">
+                {current_mins}:{current_secs}
+            </p>
+            <div className="grow cursor-pointer">
+                <div id="line" className="h-[12px] bg-[#FFC46C] rounded-[6px] relative" onClick={this.barClicked.bind(this)}>
                 <div id="circle"
-                     className="h-[32px] w-[32px] bg-rose-500 rounded-full absolute top-[-10px] border-2 border-red-600 pointer-events-none"
+                     className="h-[32px] w-[32px] bg-[#FFC46C] rounded-full absolute top-[-10px] border-2 border-[#E88D04] pointer-events-none"
                      style={{left: `calc(${proportion}% - 16px`}}
                      >
                 </div>
                 </div>
             </div>
-            <div className="bg-white px-3 py-2 rounded-[30px] text-red-900 text-xl font-bold">
-                {current_mins}:{current_secs} / {total_mins}:{total_secs}
-            </div>
+            <p className="text-[#FFC46C] text-xl font-bold">
+                {total_mins}:{total_secs}
+            </p>
         </div>
     }
 }
@@ -103,7 +106,7 @@ class PlayBar extends React.Component {
 class Player extends React.Component {
     render () {
         let {toggle, playing, prev, suiv, seek, duration, changeTiming} =this.props
-        return <div className="bg-blue-500 col-span-2"> 
+        return <div className="bg-[#000] text-[#FFC46C] col-span-2"> 
             <Buttons toggle={toggle} playing={playing} prev={prev} suiv={suiv}/>
             <PlayBar seek={seek} duration={duration} changeTiming={changeTiming}/>
         </div>
